@@ -64,6 +64,11 @@ async function displayShows(shows) {
         const card = document.createElement("article");
         card.classList.add("show-card");
 
+        const poster = document.createElement("img");
+        poster.src = show.show.image ? show.show.image.medium : "https://via.placeholder.com/210x295?text=No+Image";
+        poster.alt = `${show.show.name} Poster`;
+        card.appendChild(poster);
+
         const name = document.createElement("h2");
         name.textContent = show.show.name;
         card.appendChild(name);
@@ -97,7 +102,6 @@ async function displayShows(shows) {
         const castList = document.createElement("ul");
         castList.classList.add("cast-list");
         card.appendChild(castList);
-
         try {
             let castRes = await fetch(castUrl.replace("SHOW_ID", show.show.id));
             if (!castRes.ok) {

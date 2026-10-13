@@ -1,0 +1,18 @@
+#show-results > ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: stretch;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#show-results > ul > .show-card {
+    flex: 1 1 280px;
+    max-width: 400px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
