@@ -14,6 +14,12 @@ async function handleShowFormSubmit(event) {
     const showUrl = "https://api.tvmaze.com/search/shows?q=QUERY";
     try {
         let res = await fetch(showUrl.replace("QUERY", keyword));
+        
+        if (res.status === 429) {
+            alert("Too many requests. Please wait a moment and try again.");
+            return;
+        }
+        
         if (!res.ok) {
             throw new Error(await res.text())
         }
